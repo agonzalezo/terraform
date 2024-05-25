@@ -11,14 +11,19 @@ provider "docker" {
   host = "npipe:////./pipe/docker_engine"  # Ruta al socket de Docker en Windows
 }
 
+# Pulls the image
+resource "docker_image" "versioner" {
+  name = "agonzalezo/versioner:latest"
+}
+
 # Create a container
 resource "docker_container" "web01" {
-  image = "nginx:latest"
+  image = docker_image.versioner.image_id
   name  = "web01"
   rm = true
-  env = [ "HOLA=CHAO" ]
+  env = [ "APPVERSION=1.1.1" ]
   ports {
-    internal = 80
-    external = 8080
+    external = 3000
+    internal = 3000
   }
 }
