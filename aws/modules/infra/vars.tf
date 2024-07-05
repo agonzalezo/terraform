@@ -13,7 +13,7 @@ variable "vpc_cidr" {
 
 variable "environment" {
   default     = "DEV1"
-  description = "Environment name used as preffix / suffix"
+  description = "Environment name used as prefix / suffix"
 }
 
 variable "az_numbers" {
