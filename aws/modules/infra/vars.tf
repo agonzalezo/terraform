@@ -8,11 +8,11 @@ data "aws_availability_zones" "available" {
 ## Variables
 variable "vpc_cidr" {
   description = "CIDR block for the VPC."
-  default     = "10.10.0.0/16"
+  # default     = "10.10.0.0/16"
 }
 
 variable "environment" {
-  default     = "DEV1"
+  # default     = "DEV1"
   description = "Environment name used as prefix / suffix"
 }
 
