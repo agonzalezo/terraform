@@ -10,3 +10,7 @@ output "available_zones" {
 output "PublicIP" {
   value = aws_eip.public_ip.public_ip
 }
+
+output "vpc_id" {
+  value = aws_vpc.main.id
+}

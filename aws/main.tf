@@ -27,17 +27,17 @@ provider "aws" {
   }
 }
 
-## Import whole infrastructure
-module "infra" {
-  source      = "./modules/infra"
-  environment = "DEV1"
+## Deploy Network Infrastructure for an environment
+module "dev_infrastructure" {
+  source      = "./modules/infrastructure"
+  environment = "DEV"
   vpc_cidr    = "10.10.0.0/16"
 
 }
 
-## Import whole infrastructure
-module "infra2" {
-  source      = "./modules/infra"
-  environment = "QA1"
-  vpc_cidr = "10.20.0.0/16"
+## Deploy a security components like a security groups and ssh keys
+module "dev_security" {
+  source = "./modules/security"
+  environment = "DEV"
+  my_vpc_id = module.dev_infrastructure.vpc_id
 }
