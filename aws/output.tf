@@ -5,3 +5,8 @@ output "dev_infrastructure_output" {
 output "dev_security_output" {
   value = module.dev_security
 }
+
+output "dev_ec2" {
+  value = module.dev_ec2
+  
+}

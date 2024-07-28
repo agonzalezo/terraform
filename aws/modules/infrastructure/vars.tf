@@ -17,6 +17,7 @@ variable "environment" {
 }
 
 variable "az_numbers" {
-  default = 2
+  type = number
+  # default = 2
   description = "amount of availability zones"
 }
